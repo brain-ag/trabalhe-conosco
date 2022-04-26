@@ -32,6 +32,7 @@ O mesmo consiste em um cadastro de produtor rural com os seguintes dados:
 
 # Requisitos técnicos
 
- - O front-end deverá ser escrito em [ReactJS](http://reactjs.org) usando o [Redux](https://redux.js.org/) para controlar o estado da aplicação.
- - Os dados inputados pelo usuário deverão ser salvos em um banco de dados Postgres usando o NodeJS como layer de Backend.
- - Não envie a solução como anexo, suba os fontes para seu Github (ou outro repositório) e envie o link para *guilherme@brain.agr.br*. 
+ - O desenvolvedor front-end deverá utilizar [ReactJS](http://reactjs.org) usando o [Redux](https://redux.js.org/) para controlar o estado da aplicação. A criação das estruturas de dados "mockados" faz parte da avaliação.
+ - O desenvolvedor back-end deve salvar os dados em um banco de dados Postgres usando o NodeJS como layer de Backend, e entregar os endpoints para cadastrar, editar, e excluir produtores rurais, além do endpoint que retorne os totais para o dashboard.  A criação das estruturas de dados "mockados" faz parte da avaliação.
+ - O desenvolvedor full-stack deve realizar ambos, e concluir a integração.
+ - Não envie a solução como anexo, suba os fontes para seu Github (ou outro repositório) e envie o link para o avaliador. 
