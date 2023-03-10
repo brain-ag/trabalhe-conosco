@@ -33,7 +33,7 @@ O mesmo consiste em um cadastro de produtor rural com os seguintes dados:
 
   - [ReactJS](http://reactjs.org);
   - [Redux](https://redux.js.org/) para controlar o estado da aplicação.
-    - Caso entenda que faça sentido, utilize [Context API](https://reactjs.org/docs/context.html) como recurso adicional (Opcional)
+    - Caso entenda que faça sentido, utilize [Context API](https://reactjs.org/docs/context.html) como recurso adicional ou substituto ao Redux (Opcional)
   - Crie pelo menos um teste unitário por componente (Opcional)
   - A criação das estruturas de dados "mockados" faz parte da avaliação.
 
