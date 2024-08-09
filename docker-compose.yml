@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: projeto_agricultor_db
+    image: postgres:14-alpine
+    restart: always
+    user: ${POSTGRES_USER}
+    volumes:
+      - pgdata-projeto-agricultor:/var/lib/postgresql/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    networks:
+      - projeto-agricultor
+
+  pgadmin:
+    container_name: projeto_agricultor_pgadmin
+    image: dpage/pgadmin4
+    restart: unless-stopped
+    volumes:
+       - pgadmin_agricultor:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+      PGADMIN_CONFIG_SERVER_MODE: ${PGADMIN_CONFIG_SERVER_MODE}
+    ports:
+      - ${PGADMIN_PORT}:80
+    networks:
+      - projeto-agricultor
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: onr_certidao_digital_app
+    hostname: app
+    stdin_open: true
+    ports:
+      - ${APP_PORT}:8000
+    env_file:
+      - ${ENV_SECRET}
+    environment:
+      GUNICORN_CMD_ARGS: '--bind 0.0.0.0:8000 --workers 4'
+    depends_on:
+      - db
+    networks:
+      - projeto-agricultor
+    volumes:
+      - .:/app
+
+volumes:
+  pgdata-projeto-agricultor:
+  pgadmin_agricultor:
+
+networks:
+  projeto-agricultor:

@@ -1,52 +1,103 @@
-# Teste - Brain Agriculture
+# Projeto de exemplo com Django Ninja
 
-O teste tem como objetivo acurar as habilidades do candidato em resolver alguns problemas relacionados à lógica de programação, regra de negócio e orientação à objetos.
+``` bash
+https://django-ninja.dev/
+```
 
-O mesmo consiste em um cadastro de produtor rural com os seguintes dados:
+## O que o projeto faz?
 
-1.  CPF ou CNPJ
-2.  Nome do produtor
-3.  Nome da Fazenda
-4.  Cidade
-5.  Estado
-6.  Área total em hectares da fazenda
-7.  Área agricultável em hectares
-8.  Área de vegetação em hectares
-9.  Culturas plantadas (Soja, Milho, Algodão, Café, Cana de Açucar)
+* O usuário deverá ter a possibilidade de cadastrar, editar, e excluir produtores rurais.
+* O sistema deverá validar CPF e CNPJ digitados incorretamente.
+* A soma de área agrícultável e vegetação, não deverá ser maior que a área total da fazenda
+* Cada produtor pode plantar mais de uma cultura em sua Fazenda.
+* A plataforma deverá ter um Dashboard que exiba:
+* Total de fazendas em quantidade
+* Total de fazendas em hectares (área total)
+* Gráfico de pizza por estado.
+* Gráfico de pizza por cultura.
+* Gráfico de pizza por uso de solo (Área agricultável e vegetação)
 
-# Requisitos de negócio
+## Como rodar o projeto na sua máquina local?
 
-- O usuário deverá ter a possibilidade de cadastrar, editar, e excluir produtores rurais.
-- O sistema deverá validar CPF e CNPJ digitados incorretamente.
-- A soma de área agrícultável e vegetação, não deverá ser maior que a área total da fazenda
-- Cada produtor pode plantar mais de uma cultura em sua Fazenda.
-- A plataforma deverá ter um Dashboard que exiba:
-  - Total de fazendas em quantidade
-  - Total de fazendas em hectares (área total)
-  - Gráfico de pizza por estado.
-  - Gráfico de pizza por cultura.
-  - Gráfico de pizza por uso de solo (Área agricultável e vegetação)
+* Clone esse repositório.
+* Crie um virtualenv com Python 3.
+* Ative o virtualenv.
+* Instale as dependências.
+* Rode as migrações.
 
-# Requisitos técnicos
+```bash
+git clone "repositorio atual" projetoagricultor
+cd projetoagricultor
 
-- O desenvolvedor front-end deverá utilizar:
+# Crie a virtualenv
+python -m venv .venv
 
-  - [ReactJS](http://reactjs.org);
-  - [Redux](https://redux.js.org/) para controlar o estado da aplicação.
-    - Caso entenda que faça sentido, utilize [Context API](https://reactjs.org/docs/context.html) como recurso adicional ou substituto ao Redux (Opcional)
-  - Crie pelo menos um teste unitário por componente (Opcional)
-  - A criação das estruturas de dados "mockados" faz parte da avaliação.
+# Crie a virtualenv utilizando Makefile
+make create-venv
 
-- O desenvolvedor back-end deve:
-  - Salvar os dados em um banco de dados Postgres usando o NodeJS como layer de Backend, e entregar os endpoints para cadastrar, editar, e excluir produtores rurais, além do endpoint que retorne os totais para o dashboard.
-  - A criação das estruturas de dados "mockados" faz parte da avaliação.
+# Ative a virtualenv
+source .venv/bin/activate  # Linux
+.venv\Scripts\activate  # Windows
 
-  Desejável:
-  - TypeScript
-  - Conceitos como SOLID, KISS, Clean Code, API Contracts, Tests, Layered Architecture
+# Instale os pacotes
+pip install -r requirements/dev.txt
 
-  Bonus:
-  - Aplicação disponibilizada em algum cloud provider de sua preferência
+# Instale os pacotes utilizando Makefile
+make setup-dev
 
-- O desenvolvedor full-stack deve realizar ambos, e concluir a integração.
-  > Não envie a solução como anexo, suba os fontes para seu Github (ou outro repositório) e envie o link para o avaliador.
+# Crie o arquivo de variáveis de ambiente
+cp .env.sample .env
+
+# Suba os containers
+docker-compose up -d
+
+# Suba os containers utilizado Makefile
+make up
+
+# Build os containers
+docker-compose up -d --build
+
+# Build os containers utilizado Makefile
+make build
+
+# Rode as migrações
+python manage.py makemigrations
+python manage.py migrate
+
+# Carregue os dados iniciais
+python manage.py loaddata fixtures/initial.json
+
+python manage.py runserver
+```
+
+## Como rodar o projeto 100% pelo Docker?
+
+```bash
+git clone "repositorio atual" projetoagricultor
+cd projetoagricultor
+
+# Suba os containers
+docker-compose up -d
+
+docker container exec -it app_name python manage.py createsuperuser
+
+# Rode os testes
+docker container exec -it app_name pytest
+
+# Gere alguns dados randômicos
+docker container exec -it app_name python manage.py seed crm --number=5
+```
+
+## Rodando os testes
+
+```bash
+pytest -vv
+```
+
+## url da doc
+
+A doc é gerada automaticamente com Swagger.
+
+```bash
+http://localhost:8000/api/v1/docs
+```

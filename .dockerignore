@@ -1,0 +1,22 @@
+.coverage
+.coverage.*
+.env*
+.env.docker
+.pytest_cache/
+.ruff_cache/
+.venv*
+Dockerfile*
+htmlcov/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.pyc
+*.pyo
+*.pyd
+pip-log.txt
+.cache
+.git*
+postman
+.tox

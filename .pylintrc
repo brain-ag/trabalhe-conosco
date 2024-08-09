@@ -1,0 +1,26 @@
+[BASIC]
+extension-pkg-whitelist=pydantic
+good-names=i, j, k, q, db
+max-args=10
+
+[FORMAT]
+max-line-length = 79
+
+[MESSAGE CONTROL]
+disable =
+    import-error,
+    wildcard-import,
+    undefined-variable,
+    no-name-in-module,
+    missing-timeout,
+    logging-fstring-interpolation,
+    unnecessary-ellipsis,
+    redefined-outer-name,
+    redefined-builtin,
+    no-member,
+    abstract-method,
+    line-too-long,
+    unused-argument,
+    broad-exception-caught,
+    unnecessary-pass,
+    import-outside-toplevel
