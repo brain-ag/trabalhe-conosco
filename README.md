@@ -20,22 +20,8 @@ O mesmo consiste em um cadastro de produtor rural com os seguintes dados:
 - O sistema deverá validar CPF e CNPJ digitados incorretamente.
 - A soma de área agrícultável e vegetação, não deverá ser maior que a área total da fazenda
 - Cada produtor pode plantar mais de uma cultura em sua Fazenda.
-- A plataforma deverá ter um Dashboard que exiba:
-  - Total de fazendas em quantidade
-  - Total de fazendas em hectares (área total)
-  - Gráfico de pizza por estado.
-  - Gráfico de pizza por cultura.
-  - Gráfico de pizza por uso de solo (Área agricultável e vegetação)
 
 # Requisitos técnicos
-
-- O desenvolvedor front-end deverá utilizar:
-
-  - [ReactJS](http://reactjs.org);
-  - [Redux](https://redux.js.org/) para controlar o estado da aplicação.
-    - Caso entenda que faça sentido, utilize [Context API](https://reactjs.org/docs/context.html) como recurso adicional ou substituto ao Redux (Opcional)
-  - Crie pelo menos um teste unitário por componente (Opcional)
-  - A criação das estruturas de dados "mockados" faz parte da avaliação.
 
 - O desenvolvedor back-end deve:
   - Salvar os dados em um banco de dados Postgres usando o NodeJS como layer de Backend, e entregar os endpoints para cadastrar, editar, e excluir produtores rurais, além do endpoint que retorne os totais para o dashboard.

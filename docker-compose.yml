@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    container_name: js_dev_container
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000" 
+    env_file:
+      - .env
+    stdin_open: true # Keep the STDIN open for the container
+    tty: true # Keep the TTY open
+    depends_on:
+      - db
+    user: "1000:1000"
+    networks:
+      - dev_network 
+
+  db:
+    image: postgres:14
+    container_name: postgres_dev
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dev_network
+
+volumes:
+  postgres_data:
+
+networks:
+  dev_network:
+    driver: bridge
