@@ -12,9 +12,7 @@ class CropController {
     try {
       const crop = await this.cropService.getAllCrop();
 
-      res
-        .status(200)
-        .json({ message: 'Crop retrieved successfully', crop });
+      res.status(200).json({ message: 'Crop retrieved successfully', crop });
     } catch (error) {
       res.status(500).json({ error: 'Error retrieving crop' });
     }
@@ -33,9 +31,7 @@ class CropController {
         return;
       }
 
-      res
-        .status(200)
-        .json({ message: 'Crop retrieved successfully', crop });
+      res.status(200).json({ message: 'Crop retrieved successfully', crop });
     } catch (error) {
       res.status(500).json({ error: 'Error retrieving crop' });
     }
@@ -68,21 +64,17 @@ class CropController {
       const updatedCrop = await this.cropService.updateCrop(
         Number(id),
         cropData
-      ); 
+      );
 
       if (!updatedCrop) {
-        res
-          .status(404)
-          .json({ error: 'Crop not found or failed to update' });
+        res.status(404).json({ error: 'Crop not found or failed to update' });
         return;
       }
 
-      res
-        .status(200)
-        .json({
-          message: 'Crop updated successfully',
-          crop: updatedCrop,
-        });
+      res.status(200).json({
+        message: 'Crop updated successfully',
+        crop: updatedCrop,
+      });
     } catch (error) {
       res.status(500).json({ error: 'Error updating Crop' });
     }
@@ -98,9 +90,7 @@ class CropController {
       const deletedCrop = await this.cropService.deleteCrop(Number(id));
 
       if (!deletedCrop) {
-        res
-          .status(404)
-          .json({ error: 'Crop not found or failed to delete' });
+        res.status(404).json({ error: 'Crop not found or failed to delete' });
         return;
       }
 

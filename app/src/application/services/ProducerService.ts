@@ -34,7 +34,10 @@ class ProducerService {
     return this.producerRepository.save(producer);
   }
 
-  async updateProducer(id: number, producerData: ProducerDTO): Promise<ProducerEntity | null> {
+  async updateProducer(
+    id: number,
+    producerData: ProducerDTO
+  ): Promise<ProducerEntity | null> {
     try {
       const producer = await this.producerRepository.findById(id);
       if (!producer) {
@@ -66,18 +69,6 @@ class ProducerService {
     } catch (error) {
       throw new Error('Error deleting producer: ' + error.message);
     }
-  }
-
-  async login(email: string, password: string): Promise<string> {
-    const producer = await this.producerRepository.findByEmail(email);
-    if (!producer || !(await bcrypt.compare(password, producer.password))) {
-      throw new Error('Invalid email or password');
-    }
-
-    const token = jwt.sign({ id: producer.id }, process.env.JWT_SECRET, {
-      expiresIn: '1h',
-    });
-    return token;
   }
 }
 

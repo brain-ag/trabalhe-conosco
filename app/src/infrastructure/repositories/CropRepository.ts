@@ -9,9 +9,9 @@ class CropRepository implements ICropRepository {
   constructor(private entityManager: EntityManager) {
     this.ormRepository = AppDataSource.getRepository(CropEntity);
   }
-  
+
   async save(crop: CropEntity): Promise<CropEntity> {
-    return this.ormRepository.save(crop); 
+    return this.ormRepository.save(crop);
   }
 
   async findByName(name: string): Promise<CropEntity | null> {

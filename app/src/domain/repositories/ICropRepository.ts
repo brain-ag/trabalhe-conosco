@@ -1,4 +1,4 @@
-import { Crop } from "../entities/Crop";
+import { Crop } from '../entities/Crop';
 
 export interface ICropRepository {
   save(crop: Crop): Promise<Crop>;

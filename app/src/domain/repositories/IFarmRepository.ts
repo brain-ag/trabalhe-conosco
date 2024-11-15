@@ -1,4 +1,4 @@
-import { FarmEntity } from "../../infrastructure/database/entities/FarmEntity";
+import { FarmEntity } from '../../infrastructure/database/entities/FarmEntity';
 
 export interface IFarmRepository {
   create(farm: FarmEntity): Promise<FarmEntity>;

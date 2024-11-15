@@ -1,3 +1,7 @@
+docker exec -it js_dev_container sh -c "cd /app/app && npm run dev"
+
+docker exec -it js_dev_container sh -c "cd /app/app && npm run typeorm migration:run -- -d ./src/infrastructure/database/data-source.ts"
+
 # Teste - Brain Agriculture
 
 O teste tem como objetivo acurar as habilidades do candidato em resolver alguns problemas relacionados à lógica de programação, regra de negócio e orientação à objetos.

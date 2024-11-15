@@ -7,9 +7,9 @@ export class FarmController {
   async createFarm(req: Request, res: Response): Promise<void> {
     try {
       const data = req.body;
-      const producerId = req.user.id; 
-      const farm = await this.farmService.createFarm(data, producerId); 
-      
+      const producerId = req.user.id;
+      const farm = await this.farmService.createFarm(data, producerId);
+
       res.status(201).json(farm);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -40,7 +40,10 @@ export class FarmController {
 
   async updateFarm(req: Request, res: Response): Promise<void> {
     try {
-      const farm = await this.farmService.updateFarm(Number(req.params.id), req.body);
+      const farm = await this.farmService.updateFarm(
+        Number(req.params.id),
+        req.body
+      );
       res.status(200).json(farm);
     } catch (error) {
       res.status(500).json({ error: error.message });

@@ -1,5 +1,3 @@
 export class Crop {
-  constructor(
-    public name: string,
-  ) {}
+  constructor(public name: string) {}
 }

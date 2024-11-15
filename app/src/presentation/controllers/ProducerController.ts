@@ -26,34 +26,18 @@ class ProducerController {
     }
   };
 
-  createProducer: RequestHandler = async (
-    req: Request,
-    res: Response
-  ): Promise<void> => {
-    try {
-      const producerData: ProducerDTO = req.body;
-      const producer = await this.producerService.createProducer(producerData);
-
-      res
-        .status(200)
-        .json({ message: 'Producer created successfully', producer: producer });
-    } catch (error) {
-      res.status(500).json({ error: 'Error creating producer' });
-    }
-  };
-
   updateProducer: RequestHandler = async (
     req: Request,
     res: Response
   ): Promise<void> => {
     try {
-      const { id } = req.params; // Obtém o ID do produtor da URL
-      const producerData: ProducerDTO = req.body; // Dados do produtor a serem atualizados
+      const { id } = req.params;
+      const producerData: ProducerDTO = req.body;
 
       const updatedProducer = await this.producerService.updateProducer(
         Number(id),
         producerData
-      ); // Chama o serviço para atualizar
+      );
 
       if (!updatedProducer) {
         res
@@ -62,12 +46,10 @@ class ProducerController {
         return;
       }
 
-      res
-        .status(200)
-        .json({
-          message: 'Producer updated successfully',
-          producer: updatedProducer,
-        });
+      res.status(200).json({
+        message: 'Producer updated successfully',
+        producer: updatedProducer,
+      });
     } catch (error) {
       res.status(500).json({ error: 'Error updating producer' });
     }
@@ -80,7 +62,9 @@ class ProducerController {
     try {
       const { id } = req.params;
 
-      const deletedProducer = await this.producerService.deleteProducer(Number(id));
+      const deletedProducer = await this.producerService.deleteProducer(
+        Number(id)
+      );
 
       if (!deletedProducer) {
         res
@@ -92,20 +76,6 @@ class ProducerController {
       res.status(200).json({ message: 'Producer deleted successfully' });
     } catch (error) {
       res.status(500).json({ error: 'Error deleting producer' });
-    }
-  };
-
-  login: RequestHandler = async (
-    req: Request,
-    res: Response
-  ): Promise<void> => {
-    try {
-      const { email, password } = req.body;
-      const token = await this.producerService.login(email, password);
-
-      res.status(200).json({ message: 'Login successful', token: token });
-    } catch (error) {
-      res.status(401).json({ error: 'Invalid email or password' });
     }
   };
 }

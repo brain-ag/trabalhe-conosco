@@ -9,7 +9,11 @@ class FarmService {
   private producerRepository: ProducerRepository;
   private cropRepository: CropRepository;
 
-  constructor(farmRepository: FarmRepository, producerRepository: ProducerRepository, cropRepository: CropRepository) {
+  constructor(
+    farmRepository: FarmRepository,
+    producerRepository: ProducerRepository,
+    cropRepository: CropRepository
+  ) {
     this.farmRepository = farmRepository;
     this.producerRepository = producerRepository;
     this.cropRepository = cropRepository;
@@ -28,7 +32,7 @@ class FarmService {
     this.validateFarmArea(data);
 
     const producer = await this.producerRepository.findById(producerId);
-    
+
     if (!producer) {
       throw new Error('Producer not found');
     }
@@ -57,25 +61,24 @@ class FarmService {
     try {
       const farm = await this.getFarmById(id);
       if (!farm) throw new Error('Farm not found');
-  
+
       this.validateFarmArea(data);
-  
+
       if (data.crop && data.crop.length > 0) {
         const crops = await this.cropRepository.findCropsByIds(data.crop);
-  
+
         farm.crops = crops;
       }
-  
+
       Object.assign(farm, data);
-  
+
       const updatedFarm = await this.farmRepository.update(farm as FarmEntity);
-  
+
       return updatedFarm;
     } catch (error) {
       throw new Error('Error updating farm: ' + error.message);
     }
   }
-  
 
   async deleteFarm(id: number): Promise<boolean> {
     try {
@@ -83,26 +86,27 @@ class FarmService {
       if (!farm) {
         return false;
       }
-  
+
       farm.deletedAt = new Date();
-      
+
       await this.farmRepository.update(farm);
-  
+
       farm.crops = [];
       await this.farmRepository.update(farm);
-  
+
       return true;
     } catch (error) {
       throw new Error('Error deleting farm: ' + error.message);
     }
   }
-  
 
   private validateFarmArea(data: FarmDTO): void {
     const { areaHectaresFarm, arableAreaHectares, vegetationAreaFarm } = data;
 
     if (arableAreaHectares + vegetationAreaFarm > areaHectaresFarm) {
-      throw new Error('A soma das áreas agrícolas e de vegetação não pode ser maior que a área total da fazenda.');
+      throw new Error(
+        'A soma das áreas agrícolas e de vegetação não pode ser maior que a área total da fazenda.'
+      );
     }
   }
 }

@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
-  OneToMany
+  OneToMany,
 } from 'typeorm';
 import { FarmEntity } from './FarmEntity';
 

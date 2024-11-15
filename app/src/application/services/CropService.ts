@@ -1,12 +1,13 @@
-import { CropEntity } from "../../infrastructure/database/entities/CropEntity";
-import CropRepository from "../../infrastructure/repositories/CropRepository";
+import { AppDataSource } from '../../infrastructure/database/data-source';
+import { CropEntity } from '../../infrastructure/database/entities/CropEntity';
+import CropRepository from '../../infrastructure/repositories/CropRepository';
 import { CropDTO } from '../../presentation/dto/CropDTO';
 
 class CropService {
-  private cropRepository = new CropRepository();
+  private cropRepository: CropRepository;
 
   constructor() {
-    this.cropRepository = new CropRepository();
+    this.cropRepository = new CropRepository(AppDataSource.manager);
   }
 
   async getAllCrop(): Promise<CropEntity[] | null> {
@@ -36,14 +37,11 @@ class CropService {
     return this.cropRepository.save(crop);
   }
 
-  async updateCrop(
-    id: number,
-    cropData: CropDTO
-  ): Promise<CropEntity | null> {
+  async updateCrop(id: number, cropData: CropDTO): Promise<CropEntity | null> {
     try {
       const crop = await this.cropRepository.findById(id);
       if (!crop) {
-        return null; 
+        return null;
       }
 
       crop.name = cropData.name;

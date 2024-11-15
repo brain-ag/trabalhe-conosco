@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import ProducerRepository from "../../infrastructure/repositories/ProducerRepository";
+import ProducerRepository from '../../infrastructure/repositories/ProducerRepository';
 
 class AuthService {
   private producerRepository = new ProducerRepository();

@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
-  ManyToMany
+  ManyToMany,
 } from 'typeorm';
 import { FarmEntity } from './FarmEntity';
 
@@ -26,6 +26,6 @@ export class CropEntity {
   @DeleteDateColumn()
   deleted_at: Date | null;
 
-  @ManyToMany(() => FarmEntity, (farm) => farm.crop)
+  @ManyToMany(() => FarmEntity, (farm) => farm.crops)
   farms: FarmEntity[];
 }
