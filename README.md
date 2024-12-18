@@ -1,52 +1,88 @@
-# Teste - Brain Agriculture
+# **Brain Agriculture - Teste Técnico**
 
-O teste tem como objetivo acurar as habilidades do candidato em resolver alguns problemas relacionados à lógica de programação, regra de negócio e orientação à objetos.
+Olá! Bem-vindo(a) ao nosso teste técnico. Estamos muito animados para conhecer mais sobre você, suas habilidades técnicas e sua forma de resolver problemas. Este teste foi pensado para ser um reflexo do que valorizamos em nosso time, e esperamos que você se sinta confortável e confiante durante o processo.
 
-O mesmo consiste em um cadastro de produtor rural com os seguintes dados:
+## **O que queremos avaliar?**
 
-1.  CPF ou CNPJ
-2.  Nome do produtor
-3.  Nome da Fazenda
-4.  Cidade
-5.  Estado
-6.  Área total em hectares da fazenda
-7.  Área agricultável em hectares
-8.  Área de vegetação em hectares
-9.  Culturas plantadas (Soja, Milho, Algodão, Café, Cana de Açucar)
+Nosso objetivo com este teste é entender melhor como você:
 
-# Requisitos de negócio
+- Resolve problemas relacionados à lógica de programação e orientação a objetos.
+- Interpreta requisitos de negócio e os transforma em soluções técnicas.
+- Aplica boas práticas de desenvolvimento, com foco em código limpo, testável, de fácil manutenção e observável.
+- Garante que o sistema seja escalável e confiável, principalmente ao lidar com grande volume de dados.
+- Escreve documentações claras para facilitar a integração e manutenção por outros desenvolvedores ou clientes.
 
-- O usuário deverá ter a possibilidade de cadastrar, editar, e excluir produtores rurais.
-- O sistema deverá validar CPF e CNPJ digitados incorretamente.
-- A soma de área agrícultável e vegetação, não deverá ser maior que a área total da fazenda
-- Cada produtor pode plantar mais de uma cultura em sua Fazenda.
-- A plataforma deverá ter um Dashboard que exiba:
-  - Total de fazendas em quantidade
-  - Total de fazendas em hectares (área total)
-  - Gráfico de pizza por estado.
-  - Gráfico de pizza por cultura.
-  - Gráfico de pizza por uso de solo (Área agricultável e vegetação)
+**Dica:** Imagine que você está criando uma aplicação que será utilizada por clientes, parceiros ou até mesmo por outros desenvolvedores. Queremos ver sua atenção aos detalhes!
 
-# Requisitos técnicos
+## **O que você precisa desenvolver?**
 
-- O desenvolvedor front-end deverá utilizar:
+A proposta é criar uma aplicação para gerenciar o cadastro de produtores rurais, com os seguintes dados:
 
-  - [ReactJS](http://reactjs.org);
-  - [Redux](https://redux.js.org/) para controlar o estado da aplicação.
-    - Caso entenda que faça sentido, utilize [Context API](https://reactjs.org/docs/context.html) como recurso adicional ou substituto ao Redux (Opcional)
-  - Crie pelo menos um teste unitário por componente (Opcional)
-  - A criação das estruturas de dados "mockados" faz parte da avaliação.
+- CPF ou CNPJ
+- Nome do produtor
+- Nome da fazenda
+- Cidade
+- Estado
+- Área total da fazenda (em hectares)
+- Área agricultável (em hectares)
+- Área de vegetação (em hectares)
+- Culturas plantadas (ex.: Soja, Milho, Café)
 
-- O desenvolvedor back-end deve:
-  - Salvar os dados em um banco de dados Postgres usando o NodeJS como layer de Backend, e entregar os endpoints para cadastrar, editar, e excluir produtores rurais, além do endpoint que retorne os totais para o dashboard.
-  - A criação das estruturas de dados "mockados" faz parte da avaliação.
+### **Requisitos de negócio**
 
-  Desejável:
-  - TypeScript
-  - Conceitos como SOLID, KISS, Clean Code, API Contracts, Tests, Layered Architecture
+1. Permitir o cadastro, edição e exclusão de produtores rurais.
+2. Validar o CPF ou CNPJ fornecido pelo usuário.
+3. Garantir que a soma das áreas agricultável e de vegetação não ultrapasse a área total da fazenda.
+4. Permitir o registro de várias culturas por fazenda do produtor.
+5. Exibir um dashboard com:
+   - Total de fazendas cadastradas (quantidade).
+   - Total de hectares registrados (área total).
+   - Gráficos de pizza:
+     - Por estado.
+     - Por cultura plantada.
+     - Por uso do solo (área agricultável e vegetação).
 
-  Bonus:
-  - Aplicação disponibilizada em algum cloud provider de sua preferência
+---
 
-- O desenvolvedor full-stack deve realizar ambos, e concluir a integração.
-  > Não envie a solução como anexo, suba os fontes para seu Github (ou outro repositório) e envie o link para o avaliador.
+## **Tecnologias sugeridas**
+
+Sabemos que você pode ter seu próprio estilo, mas aqui estão algumas tecnologias e boas práticas que valorizamos:
+
+- **Conceitos**: SOLID, KISS, Clean Code, API Contracts, Testes, Arquitetura em camadas.
+- **Documentações**: Para facilitar o entendimento do funcionamento do sistema, é importante incluir um README claro, uma especificação OpenAPI e, caso necessário, diagramas que ajudem a visualizar a arquitetura ou os processos.
+- **Bônus**: Se conseguir disponibilizar a aplicação na nuvem e acessível via internet, será um diferencial!
+
+### **Se você for desenvolvedor FRONTEND:**
+
+- Utilize **TypeScript**.
+- Utilize **ReactJS**.
+- Use **Redux** para gerenciar o estado da aplicação.
+  - Se preferir, você pode usar **Context API** como alternativa ou complemento ao Redux (opcional).
+- Crie pelo menos um teste unitário por componente (opcional).
+- Estruture dados "mockados" para simular cenários.
+
+### **Se você for desenvolvedor BACKEND:**
+
+- Utilize **TypeScript**.
+- Utilize **Node.js**.
+- Utilize **Docker** para distribuir a aplicação.
+- Desenvolva uma **API REST**.
+- Utilize **Postgres** como banco de dados.
+- Crie os endpoints necessários para atender os requisitos de negócio.
+- Desenvolva testes unitários e integrados.
+- Estruture dados "mockados" para testes.
+- Inclua logs para garantir a observabilidade do sistema, facilitando o monitoramento e a identificação de possíveis problemas.
+
+### **Se você for desenvolvedor FULLSTACK:**
+
+- Conclua tanto o FRONTEND quanto o BACKEND, garantindo a integração entre eles.
+
+---
+
+## **Como enviar seu projeto?**
+
+Ao concluir o desenvolvimento, suba o código-fonte para um repositório no **GitHub** (ou outro provedor de sua escolha). Certifique-se de que o repositório seja público ou que possamos acessá-lo, e nos envie o link.
+
+---
+
+**Nota final:** Queremos que você aproveite esse desafio para mostrar suas habilidades, mas também para aprender e se divertir. Se tiver dúvidas ou precisar de alguma orientação durante o processo, estamos aqui para ajudar! Boa sorte! 🌟
