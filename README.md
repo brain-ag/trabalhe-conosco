@@ -27,6 +27,7 @@ A proposta é criar uma aplicação para gerenciar o cadastro de produtores rura
 - Área agricultável (em hectares)
 - Área de vegetação (em hectares)
 - Culturas plantadas (ex.: Soja, Milho, Café)
+- Safras (ex: Safra 2021, Safra 2022)
 
 ### **Requisitos de negócio**
 
@@ -68,15 +69,23 @@ Sabemos que você pode ter seu próprio estilo, mas aqui estão algumas tecnolog
 
 ### **Se você for desenvolvedor BACKEND:**
 
-- Utilize **TypeScript**.
-- Utilize **Node.js**.
-- Utilize **Docker** para distribuir a aplicação.
 - Desenvolva uma **API REST**.
+- Utilize **Docker** para distribuir a aplicação.
 - Utilize **Postgres** como banco de dados.
 - Crie os endpoints necessários para atender os requisitos de negócio.
 - Desenvolva testes unitários e integrados.
 - Estruture dados "mockados" para testes.
 - Inclua logs para garantir a observabilidade do sistema, facilitando o monitoramento e a identificação de possíveis problemas.
+
+#### **Se você for desenvolvedor BACKEND Node:**
+
+- Utilize **TypeScript**.
+- Utilize **Node.js**.
+
+#### **Se você for desenvolvedor BACKEND Python:**
+
+- Utilize **Python 3**.
+- Utilize **Django**, **Flask** ou **FastAPI**.
 
 ### **Se você for desenvolvedor FULLSTACK:**
 
