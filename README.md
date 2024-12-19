@@ -34,7 +34,9 @@ A proposta é criar uma aplicação para gerenciar o cadastro de produtores rura
 2. Validar o CPF ou CNPJ fornecido pelo usuário.
 3. Garantir que a soma das áreas agricultável e de vegetação não ultrapasse a área total da fazenda.
 4. Permitir o registro de várias culturas por fazenda do produtor.
-5. Exibir um dashboard com:
+5. Um produtor pode estar associado a 0, 1 ou mais propriedades rurais.
+6. Uma propriedade rural pode ter 0, 1 ou mais culturas plantadas por safra.
+7. Exibir um dashboard com:
    - Total de fazendas cadastradas (quantidade).
    - Total de hectares registrados (área total).
    - Gráficos de pizza:
