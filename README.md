@@ -58,8 +58,11 @@ Sabemos que você pode ter seu próprio estilo, mas aqui estão algumas tecnolog
 - Utilize **ReactJS**.
 - Use **Redux** para gerenciar o estado da aplicação.
   - Se preferir, você pode usar **Context API** como alternativa ou complemento ao Redux (opcional).
-- Crie pelo menos um teste unitário por componente (opcional).
 - Estruture dados "mockados" para simular cenários.
+- Desenvolva testes unitários com **Jest** e **React Testing Library**.
+- Estruture os componentes utilizando atomic design patterns.
+- Utilize css in js com bibliotecas como **Styled Components** ou **Emotion**.
+- Estruture o projeto como um microfrontend (opcional);
 
 ### **Se você for desenvolvedor BACKEND:**
 
