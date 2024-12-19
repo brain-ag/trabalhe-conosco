@@ -1,4 +1,4 @@
-# **Brain Agriculture - Teste Técnico**
+# **Brain Agriculture - Teste Técnico v2**
 
 Olá! Bem-vindo(a) ao nosso teste técnico. Estamos muito animados para conhecer mais sobre você, suas habilidades técnicas e sua forma de resolver problemas. Este teste foi pensado para ser um reflexo do que valorizamos em nosso time, e esperamos que você se sinta confortável e confiante durante o processo.
 
@@ -27,7 +27,7 @@ A proposta é criar uma aplicação para gerenciar o cadastro de produtores rura
 - Área agricultável (em hectares)
 - Área de vegetação (em hectares)
 - Safras (ex: Safra 2021, Safra 2022)
-- Culturas plantadas (ex.: Soja na Safra 2021, Milho na Safra 2021, Café Safra 2022)
+- Culturas plantadas (ex.: Soja na Safra 2021, Milho na Safra 2021, Café na Safra 2022)
 
 ### **Requisitos de negócio**
 
@@ -76,11 +76,12 @@ Sabemos que você pode ter seu próprio estilo, mas aqui estão algumas tecnolog
 - Desenvolva testes unitários e integrados.
 - Estruture dados "mockados" para testes.
 - Inclua logs para garantir a observabilidade do sistema, facilitando o monitoramento e a identificação de possíveis problemas.
+- Utilize um framework de ORM.
 
 #### **Se você for desenvolvedor BACKEND Node:**
 
 - Utilize **TypeScript**.
-- Utilize **Node.js**.
+- Utilize **NestJS** ou **AdonisJS**
 
 #### **Se você for desenvolvedor BACKEND Python:**
 
